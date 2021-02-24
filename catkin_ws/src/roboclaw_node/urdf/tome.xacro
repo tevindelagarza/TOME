@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+
+<!-- Creates the model of TOM.E--> 
+<robot name="tome" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<material name="black">
+    <color rgba="0 0 0 1"/>
+</material>
+<material name="grey">
+    <color rgba=".8 .8 .8 1"/>
+</material>
+
+<!-- Creates the body (base_link) of TOM.E--> 
+    <link name="base_link">
+        <visual>
+            <geometry>
+              <box size="0.28 .16 0.11"/> <!-- L x W x H in meters --> 
+            </geometry>
+            <material name="black"/>
+        </visual>
+    </link>
+
+    <!-- Creates the front left wheel of TOM.E--> 
+    <joint name="frontLeftWheelJoint" type="continuous">
+        <axis xyz="0 0 1" /> <!-- Revolve around z axis --> 
+        <origin rpy="0 1.57075 1.57075" xyz="0.095 0.1075 -0.03"/> <!-- wheel placement --> 
+        <parent link="base_link"/>
+        <child link="frontLeftWheelLink"/>
+    </joint>
+    
+    <link name="frontLeftWheelLink">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.055"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+    </link>
+
+    <!-- Creates the back left wheel of TOM.E--> 
+    <joint name="backLeftWheelJoint" type="continuous">
+        <axis xyz="0 0 1" /> <!-- Revolve around z axis --> 
+        <origin rpy="0 1.57075 1.57075" xyz="-0.095 0.1075 -0.03"/> <!-- wheel placement --> 
+        <parent link="base_link"/>
+        <child link="backLeftWheelLink"/>
+    </joint>
+    
+    <link name="backLeftWheelLink">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.055"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+    </link>
+
+    <!-- Creates the front right wheel of TOM.E--> 
+    <joint name="frontRightWheelJoint" type="continuous">
+        <axis xyz="0 0 1" /> <!-- Revolve around z axis --> 
+        <origin rpy="0 1.57075 1.57075" xyz="0.095 -0.1075 -0.03"/> <!-- wheel placement --> 
+        <parent link="base_link"/>
+        <child link="frontRightWheelLink"/>
+    </joint>
+    
+    <link name="frontRightWheelLink">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.055"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+    </link>
+
+        <!-- Creates the back right wheel of TOM.E--> 
+    <joint name="backRightWheelJoint" type="continuous">
+        <axis xyz="0 0 1" /> <!-- Revolve around z axis --> 
+        <origin rpy="0 1.57075 1.57075" xyz="-0.095 -0.1075 -0.03"/> <!-- wheel placement --> 
+        <parent link="base_link"/>
+        <child link="backRightWheelLink"/>
+    </joint>
+    
+    <link name="backRightWheelLink">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.055"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+    </link>
+</robot>
